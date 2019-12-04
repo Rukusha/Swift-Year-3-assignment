@@ -62,6 +62,7 @@ protocol DiscountedPriceOffer : SimpleOffer {
      */
     var discountPercentage : Double {get set}
     
+    
 }
 
 /**

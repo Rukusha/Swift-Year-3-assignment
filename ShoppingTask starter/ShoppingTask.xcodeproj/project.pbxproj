@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CED73212369C9EC00B58812 /* DiscountCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED73202369C9EC00B58812 /* DiscountCalc.swift */; };
-		3CED732A236AD65100B58812 /* DiscountCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED73202369C9EC00B58812 /* DiscountCalc.swift */; };
 		4909B5181FE97BC3005051C6 /* ProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909B5171FE97BC3005051C6 /* ProtocolExtensions.swift */; };
 		4909B5191FE97BC3005051C6 /* ProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909B5171FE97BC3005051C6 /* ProtocolExtensions.swift */; };
 		4909B51B1FEA67FC005051C6 /* DineInFor2For10PoundsOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909B51A1FEA67FC005051C6 /* DineInFor2For10PoundsOffer.swift */; };
@@ -70,7 +68,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3CED73202369C9EC00B58812 /* DiscountCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCalc.swift; sourceTree = "<group>"; };
 		4909B5171FE97BC3005051C6 /* ProtocolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExtensions.swift; sourceTree = "<group>"; };
 		4909B51A1FEA67FC005051C6 /* DineInFor2For10PoundsOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DineInFor2For10PoundsOffer.swift; sourceTree = "<group>"; };
 		4909B51D1FEAD100005051C6 /* ShoppingTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTestHelpers.swift; sourceTree = "<group>"; };
@@ -125,14 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CED731F2369C9BF00B58812 /* OfferCalculations */ = {
-			isa = PBXGroup;
-			children = (
-				3CED73202369C9EC00B58812 /* DiscountCalc.swift */,
-			);
-			path = OfferCalculations;
-			sourceTree = "<group>";
-		};
 		4909B5161FE97BA8005051C6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,7 +211,6 @@
 		BBA6F9201B270586006642BC /* Offers */ = {
 			isa = PBXGroup;
 			children = (
-				3CED731F2369C9BF00B58812 /* OfferCalculations */,
 				4909B5161FE97BA8005051C6 /* Protocols */,
 				BB50CB10214818FD00C030A3 /* SpecificOffers */,
 			);
@@ -331,7 +319,6 @@
 				BBA6F9321B270E7D006642BC /* BuyTwoGetThirdFreeOffer.swift in Sources */,
 				BBA6F92A1B2707D6006642BC /* Discounter.swift in Sources */,
 				BBA6F9221B27066F006642BC /* Product.swift in Sources */,
-				3CED73212369C9EC00B58812 /* DiscountCalc.swift in Sources */,
 				4909B51B1FEA67FC005051C6 /* DineInFor2For10PoundsOffer.swift in Sources */,
 				49189D682011080200CE3460 /* WinterWarmerOffer.swift in Sources */,
 				BBA6F90D1B270525006642BC /* main.swift in Sources */,
@@ -365,7 +352,6 @@
 				BBA6F9511B271AFE006642BC /* Discounter.swift in Sources */,
 				BB72ED0D21CCF03C00D3CA7E /* B2G2FOffer.swift in Sources */,
 				BBA6F9501B271AFC006642BC /* Product.swift in Sources */,
-				3CED732A236AD65100B58812 /* DiscountCalc.swift in Sources */,
 				4909B51C1FEA67FC005051C6 /* DineInFor2For10PoundsOffer.swift in Sources */,
 				BBA6F9571B271B0C006642BC /* BuyTwoGetThirdFreeOffer.swift in Sources */,
 				BBA6F94F1B2717BF006642BC /* ShoppingTests.swift in Sources */,
