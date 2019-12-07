@@ -1,7 +1,17 @@
+//
+//  SelectOfferClass.swift
+//  ShoppingTask
+//
+//  Created by Michael Laubscher on 06/12/2019.
+//  Copyright © 2019 University of Chester. All rights reserved.
+//
+
 ///Buy one item from each category and pay just £10
-class DineInFor2For10PoundsOffer : SelectionOffer {
+class SelectOfferClass : SelectionOffer {
     var productIdGroups: Set<Set<Int>>
+    
     var maxPrice: Int
+
     var name: String
     
     
@@ -14,7 +24,7 @@ class DineInFor2For10PoundsOffer : SelectionOffer {
 
         
         productIdGroups = [sideIds,mainIds,dessertIds,wineIds]
-        maxPrice = 1000
+        maxPrice = 1200
         
         name = "Dine in for 2 for £10"
     }

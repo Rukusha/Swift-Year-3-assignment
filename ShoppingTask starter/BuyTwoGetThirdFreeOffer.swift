@@ -5,7 +5,6 @@ class BuyTwoGetThirdFreeOffer :MultiBuyOffer {
     var quantityFree: Int
     var name: String
     var productIds : Set<Int>
-    var count: Int
 
     
     init(){
@@ -13,8 +12,6 @@ class BuyTwoGetThirdFreeOffer :MultiBuyOffer {
         productIds = [65,66];
         quantityPaid = 2
         quantityFree = 1
-        count = 0
-
     }
 }
 

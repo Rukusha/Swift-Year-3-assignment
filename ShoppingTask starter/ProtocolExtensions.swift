@@ -60,24 +60,28 @@ extension HalfPriceOffer{
         return false
     }
     func discount(for purchases: [Product]) -> Int {
-        var evenDiscount = [Product]()
+        var halfOfWine : Double
         halfOfWine = 0
-        var result = 0
+
         //  loops through the product ids and compares them to the valid ids that are acceptable creating an array of accepted products
         for item in productIds{
-            evenDiscount = evenDiscount + purchases.compactMap{$0}.filter{ $0.id == item }
+            for items in purchases{
+                if items.id == item{
+                    //   converts price into a double
+                    let doublePrice = Double(items.price)
+                    //   times the item price by the discount amount
+                    var result = doublePrice * discountPercentage
+                    //   rounds the value down
+                    result = result.rounded(.down)
+                    //  returned total amount after the items have been added and discounted
+                    halfOfWine = halfOfWine + result
+                }
+            }
         }
-        //  Maths to workout the price after the disocunt has been applied
-        //  urns the 0.5 into a whole number
-        let dis = discountPercentage * 10
-        //  loops through the accepted products array
-        for item in evenDiscount{
-            //    times the item price by 10 so that the scale matches the whole number discount value
-            result = item.price * 10
-            //                chops returned amount down to the needed size
-            halfOfWine = halfOfWine + result / Int(dis) / 4
-        }
-        return halfOfWine
+
+//        converts total back to a int
+        let IntWine = Int(halfOfWine)
+        return IntWine
     }
 }
 
@@ -98,6 +102,7 @@ extension MultiBuyOffer{
             return false
         }
         func discount(for purchases: [Product]) -> Int {
+            var count = 0
             var price = 0
             var evenDiscount = [Product]()
             
@@ -111,24 +116,33 @@ extension MultiBuyOffer{
             }
             //  sorts the array from highest to lowest
             let sortedDiscount = evenDiscount.sorted { $1.price < $0.price }
-            var count = 1
-            //loops through the array and checks to see if the amount of products is a multiple of 2 or 3
-            for item in sortedDiscount{
-                if count.isMultiple(of: quantityPaid + 2 - quantityFree ) {
+            //  combines the paid and free amounts
+            let amount = quantityPaid + quantityFree
+            //grabs the items at the index of amount in this case every 2 or 3 positions
+            let holder =  sortedDiscount.enumerated().compactMap { index, element in index % amount == 0 ? nil : element }
+
+            if quantityPaid < 2{
+                for item in holder{
                     price = price + item.price
                 }
-                count += 1
+            }else{
+                for item in holder{
+                    if count != quantityPaid && count != 0{
+                        price = price + item.price
+                    }
+                    count += 1
+                }
             }
             return price
         }
-
     }
 
 
-extension ThreeMeatsForTenPoundOffer{
+extension CappedOffer{
     func applies(to purchases: [Product]) -> Bool {
             var count = 0
             var price = 0
+        
         let purchasesSorted = purchases.sorted { $1.price < $0.price }
 
             for items in purchasesSorted{
@@ -276,7 +290,7 @@ extension TriggerOffer{
     }
 }
 
-extension DineInFor2For10PoundsOffer{
+extension SelectionOffer{
     func applies(to purchases: [Product]) -> Bool {
         
         var side = [Int]()
@@ -307,6 +321,9 @@ extension DineInFor2For10PoundsOffer{
     
     func discount(for purchases: [Product]) -> Int {
         var price = 0
+        let count = 0
+        var outSideCount = 0
+        var finalDiscount = 0
         
         var sidesArray = [Product]()
         var mainsArray = [Product]()
@@ -343,7 +360,7 @@ extension DineInFor2For10PoundsOffer{
         let sorted_dessertsArray = dessertsArray.sorted { $0.price > $1.price }
         let sorted_winesArray = winesArray.sorted { $0.price > $1.price }
         
-        //  strides through each array and creates a new array/ arrays of chunks
+        //  strides through each array and creates a new chunks
         let sideChunks = stride(from: 0, to: sorted_sidesArray.count, by: 1).map {
             Array(sorted_sidesArray[$0..<min($0 + 1, sorted_sidesArray.count)])
         }
@@ -356,10 +373,7 @@ extension DineInFor2For10PoundsOffer{
         let wineChunks = stride(from: 0, to: sorted_winesArray.count, by: 1).map {
             Array(sorted_winesArray[$0..<min($0 + 1, sorted_winesArray.count)])
         }
-        
-        let count = 0
-        var outSideCount = 0
-        var finalDiscount = 0
+
         
         //  creates an array of all the chunks lengths
         let order = [sideChunks.count, mainChunks.count, dessertChunks.count, wineChunks.count]
@@ -387,16 +401,30 @@ extension DineInFor2For10PoundsOffer{
 }
 extension WinterWarmerOffer{
     func applies(to purchases: [Product]) -> Bool {
+        var groupCount = 0
+
+//        loop to get the amount of each dish required
+        for _ in productIdGroupsAndQuantities{
+            switch groupCount {
+            case 0:
+                pizzaAmount = productIdGroupsAndQuantities[groupCount].quantity
+            case 1:
+                sideAmount = productIdGroupsAndQuantities[groupCount].quantity
+            case 2:
+                garlicAmount = productIdGroupsAndQuantities[groupCount].quantity
+            case 3:
+                dessertAmount = productIdGroupsAndQuantities[groupCount].quantity
+            default:
+                print("No cases triggered")
+            }
+            groupCount += 1
+        }
         pizza = 0
         side = 0
         garlic = 0
         dessert = 0
-        
-        var groupCount = 0
-        // grabs the amount of needed items for each of the rules
-        
+                
         groupCount = 0
-//        productIdGroupsAndQuantities = [pizzaRule, sidesRule, garlicBreadRule, dessertRule]
 
         // loops through the purchases and sorts the valid items into seperate arrays by type
         for IdGroups in productIdGroupsAndQuantities{

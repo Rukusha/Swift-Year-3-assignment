@@ -87,7 +87,6 @@
 		BB72ED0B21CCF03C00D3CA7E /* B2G2FOffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = B2G2FOffer.swift; sourceTree = "<group>"; };
 		BBA6F9091B270525006642BC /* ShoppingTask */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ShoppingTask; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA6F90C1B270525006642BC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		BBA6F91A1B27055E006642BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA6F91B1B27055E006642BC /* ShoppingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTests.swift; sourceTree = "<group>"; };
 		BBA6F9211B27066F006642BC /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		BBA6F9251B2707AF006642BC /* TestReceipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestReceipt.txt; sourceTree = "<group>"; };
@@ -195,17 +194,8 @@
 				495B63362010E26900D5701E /* ComplexSelectionTests.swift */,
 				49189D65201107B900CE3460 /* SpeedTests.swift */,
 				4909B51D1FEAD100005051C6 /* ShoppingTestHelpers.swift */,
-				BBA6F9191B27055E006642BC /* Supporting Files */,
 			);
 			path = ShoppingTests;
-			sourceTree = "<group>";
-		};
-		BBA6F9191B27055E006642BC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BBA6F91A1B27055E006642BC /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BBA6F9201B270586006642BC /* Offers */ = {
@@ -262,8 +252,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "University of Chester";
 				TargetAttributes = {
 					BBA6F9081B270525006642BC = {
@@ -485,6 +475,7 @@
 		BBA6F9111B270525006642BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -493,6 +484,7 @@
 		BBA6F9121B270525006642BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

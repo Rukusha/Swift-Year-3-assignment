@@ -34,10 +34,10 @@ class WinterWarmerOffer : ComplexSelectionOffer {
         pizza = 0
         dessert = 0
         garlic = 0
-        
-        pizzaAmount = productIdGroupsAndQuantities[0].quantity
-        sideAmount = productIdGroupsAndQuantities[1].quantity
-        garlicAmount = productIdGroupsAndQuantities[2].quantity
-        dessertAmount = productIdGroupsAndQuantities[3].quantity
+
+        pizzaAmount = 0
+        sideAmount = 0
+        garlicAmount = 0
+        dessertAmount = 0
     }
 }
